@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@CrossOrigin("http://localhost:3000") // for local workspace development
-@CrossOrigin("https://serviceportal.netlify.app")
+@CrossOrigin(origins = "${spring.base.url}")
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
