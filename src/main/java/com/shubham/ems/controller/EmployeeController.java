@@ -2,6 +2,9 @@ package com.shubham.ems.controller;
 
 import com.shubham.ems.dto.EmployeeDto;
 import com.shubham.ems.service.EmployeeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,11 +23,17 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     // Build Add Employee REST API
+    @Operation(summary = "Create a new user")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "User created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input")
+    })
     @PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
+
 
     // Build Get Employee by ID REST API
     @GetMapping("{id}")
@@ -34,6 +43,8 @@ public class EmployeeController {
     }
 
     // Build Get All Employees REST API
+    @Operation(summary = "Get all users", description = "Returns a list of all users")
+    @ApiResponse(responseCode = "200", description = "Successful operation")
     @GetMapping
     public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
         List<EmployeeDto> employeeDto = employeeService.getAllEmployees();
