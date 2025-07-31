@@ -19,26 +19,26 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package -DskipTests'
+                bat 'mvn package -DskipTests'
             }
         }
 
         stage('Deploy (Optional)') {
             steps {
                 echo "Deploy step goes here. (Docker run, SCP, etc.)"
-                // sh './scripts/deploy.sh' or Docker commands
+                // bat './scripts/deploy.sh' or Docker commands
             }
         }
     }
