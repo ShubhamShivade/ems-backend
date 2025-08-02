@@ -21,7 +21,7 @@ public class OpenApiDocumentationConfig {
                         .termsOfService("https://example.com/terms")
                         .contact(new Contact()
                                 .name("Shubham Shivade")
-                                .email("shubham@example.com")
+                                .email("shubham@shivade.com")
                                 .url("https://github.com/shubhamshivade"))
                         .license(new License()
                                 .name("Apache 2.0")
