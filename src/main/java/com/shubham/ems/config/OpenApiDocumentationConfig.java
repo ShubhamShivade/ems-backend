@@ -22,7 +22,8 @@ public class OpenApiDocumentationConfig {
                         .contact(new Contact()
                                 .name("Shubham Shivade")
                                 .email("shubham@shivade.com")
-                                .url("https://github.com/shubhamshivade"))
+                                .url("https://github.com/shubhamshivade")
+                                .url("https://www.linkedin.com/in/iamshubhamshivade/"))
                         .license(new License()
                                 .name("Apache 2.0")
                                 .url("https://www.apache.org/licenses/LICENSE-2.0")));
